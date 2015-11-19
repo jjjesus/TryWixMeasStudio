@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Description                                         -->
+<!--  Contains properties that will be used throughout   -->
+<!--  the project.                                       -->
+
+<Include>
+  <!-- Determine the path to the common merge modules folder -->
+  <?define MergeModulesDir = "$(env.CommonProgramFiles)\Merge Modules" ?>
+  <?define RetargetableDir = "[INSTALLDIR]" ?>
+</Include>

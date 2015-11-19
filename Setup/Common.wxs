@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Contains references to Measurement Studio Common   -->
+<!-- merge modules and its dependencies' merge modules. -->
+
+<!-- Includes -->
+<?include .\Include\Properties.wxi ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+
+      <!-- The ConfigurationData lines are used to install Common to the local directory.      -->
+      <!-- Remove the ConfigurationData lines that begin with "Config_" to install to the GAC. -->
+      
+      <!-- Common x86 -->
+      <?if $(var.Platform) = "x86" ?>
+      <Merge Id="MStudioCommon" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioCommon.2012.msm" >
+        <ConfigurationData Name="ReconfiguredDir.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="$(var.RetargetableDir)"/>
+        <ConfigurationData Name="Config_Common.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="NI.Common.dll.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205"/>
+        <ConfigurationData Name="Config_Common.Native_32.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="NI.Common.Native_32.dll.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205"/>
+        <ConfigurationData Name="Config_CommonNative32_090.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="CommonNative32_090_Policy.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205"/>
+        <ConfigurationData Name="Config_CommonNative32_091.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="CommonNative32_091_Policy.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205"/>
+        <ConfigurationData Name="Config_CommonNative32_120.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="CommonNative32_120_Policy.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205"/>
+        <ConfigurationData Name="Config_CommonNative32_130.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="CommonNative32_130_Policy.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205"/>
+        <ConfigurationData Name="Config_Common_090.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="Common_090_Policy.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205"/>
+        <ConfigurationData Name="Config_Common_091.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="Common_091_Policy.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205"/>
+        <ConfigurationData Name="Config_Common_120.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="Common_120_Policy.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205"/>
+        <ConfigurationData Name="Config_Common_130.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="Common_130_Policy.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205"/>
+        <ConfigurationData Name="Config_MStudioCLM.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="NI.MStudioCLM.dll.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205"/>
+        <ConfigurationData Name="Config_MStudioCLM_120.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="MStudioCLM_120_Policy.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205"/>
+        <ConfigurationData Name="Config_MStudioCLM_130.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="MStudioCLM_130_Policy.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205"/>
+        <ConfigurationData Name="Config_NiLmClientDLL.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="NI.NiLmClientDLL.dll.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205"/>
+        <ConfigurationData Name="Config_NiLmClientDLL_090.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="NiLmClientDLL_090_Policy.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205"/>
+        <ConfigurationData Name="Config_NiLmClientDLL_091.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="NiLmClientDLL_091_Policy.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205"/>
+        <ConfigurationData Name="Config_NiLmClientDLL_120.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="NiLmClientDLL_120_Policy.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205"/>
+        <ConfigurationData Name="Config_NiLmClientDLL_130.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205" Value="NiLmClientDLL_130_Policy.1C9B2EB5_9E34_4944_BA92_B30CCA4E9205"/>
+      </Merge>
+      <?endif?>
+
+      <!-- Common x64 -->
+      <?if $(var.Platform) = "x64" ?>
+      <Merge Id="MStudioCommon" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioCommon.2012_x64.msm" >
+        <ConfigurationData Name="ReconfiguredDir.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="$(var.RetargetableDir)"/>
+        <ConfigurationData Name="Config_Common.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="NI.Common.dll.001AB1C4_02D9_47C8_B937_84516D6CA821"/>
+        <ConfigurationData Name="Config_Common.Native_64.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="NI.Common.Native_64.dll.001AB1C4_02D9_47C8_B937_84516D6CA821"/>
+        <ConfigurationData Name="Config_CommonNative64_090.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="CommonNative64_090_Policy.001AB1C4_02D9_47C8_B937_84516D6CA821"/>
+        <ConfigurationData Name="Config_CommonNative64_091.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="CommonNative64_091_Policy.001AB1C4_02D9_47C8_B937_84516D6CA821"/>
+        <ConfigurationData Name="Config_CommonNative64_120.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="CommonNative64_120_Policy.001AB1C4_02D9_47C8_B937_84516D6CA821"/>
+        <ConfigurationData Name="Config_CommonNative64_130.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="CommonNative64_130_Policy.001AB1C4_02D9_47C8_B937_84516D6CA821"/>
+        <ConfigurationData Name="Config_Common_090.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="Common_090_Policy.001AB1C4_02D9_47C8_B937_84516D6CA821"/>
+        <ConfigurationData Name="Config_Common_091.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="Common_091_Policy.001AB1C4_02D9_47C8_B937_84516D6CA821"/>
+        <ConfigurationData Name="Config_Common_120.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="Common_120_Policy.001AB1C4_02D9_47C8_B937_84516D6CA821"/>
+        <ConfigurationData Name="Config_Common_130.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="Common_130_Policy.001AB1C4_02D9_47C8_B937_84516D6CA821"/>
+        <ConfigurationData Name="Config_MStudioCLM.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="NI.MStudioCLM.dll.001AB1C4_02D9_47C8_B937_84516D6CA821"/>
+        <ConfigurationData Name="Config_MStudioCLM_120.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="MStudioCLM_120_Policy.001AB1C4_02D9_47C8_B937_84516D6CA821"/>
+        <ConfigurationData Name="Config_MStudioCLM_130.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="MStudioCLM_130_Policy.001AB1C4_02D9_47C8_B937_84516D6CA821"/>
+        <ConfigurationData Name="Config_NiLmClientDLL.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="NI.NiLmClientDLL.dll.001AB1C4_02D9_47C8_B937_84516D6CA821"/>
+        <ConfigurationData Name="Config_NiLmClientDLL_090.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="NiLmClientDLL_090_Policy.001AB1C4_02D9_47C8_B937_84516D6CA821"/>
+        <ConfigurationData Name="Config_NiLmClientDLL_091.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="NiLmClientDLL_091_Policy.001AB1C4_02D9_47C8_B937_84516D6CA821"/>
+        <ConfigurationData Name="Config_NiLmClientDLL_120.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="NiLmClientDLL_120_Policy.001AB1C4_02D9_47C8_B937_84516D6CA821"/>
+        <ConfigurationData Name="Config_NiLmClientDLL_130.001AB1C4_02D9_47C8_B937_84516D6CA821" Value="NiLmClientDLL_130_Policy.001AB1C4_02D9_47C8_B937_84516D6CA821"/>
+      </Merge>
+      <?endif?>
+      
+    </DirectoryRef>
+
+    <FeatureGroup Id="MStudioCommon_MergeModules">
+      <!-- Common -->
+      <MergeRef Id="MStudioCommon" />
+      
+      <!-- Dependencies -->
+      <?if $(var.Platform) = "x86" ?>
+        <MergeRef Id="Microsoft_VC100_CRT_x86" />
+      <?elseif $(var.Platform) = "x64" ?>
+        <MergeRef Id="Microsoft_VC100_CRT_x64" />
+      <?endif?>
+    </FeatureGroup>
+	</Fragment>
+</Wix>

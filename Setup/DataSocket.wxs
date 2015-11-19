@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Contains references to Measurement Studio DataSocket -->
+<!-- merge modules and its dependencies' merge modules.   -->
+
+<!-- Includes -->
+<?include .\Include\Properties.wxi ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+
+    <!-- The ConfigurationData lines are used to install DataSocket to the local directory.  -->
+    <!-- Remove the ConfigurationData lines that begin with "Config_" to install to the GAC. -->
+
+    <!-- DataSocket is different from other libraries in that it does not include 64-bit support -->
+    <!-- Placing the preprocessor condition outside of the fragment prevents DataSocket from     -->
+    <!-- being referenced from a 64-bit project.                                                 -->
+    <?if $(var.Platform) = "x86"?>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+
+      <!-- DataSocket x86 -->
+      <Merge Id="MStudioNet" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioNet.2012.msm">
+        <ConfigurationData Name="ReconfiguredDir.9E7770D8_2B24_4177_A474_8070436F49A3" Value="$(var.RetargetableDir)"/>
+        <ConfigurationData Name="Config_MStudioNet.9E7770D8_2B24_4177_A474_8070436F49A3" Value="NI.Net.dll.9E7770D8_2B24_4177_A474_8070436F49A3"/>
+      </Merge>
+
+    </DirectoryRef>
+    
+
+    <FeatureGroup Id="DataSocket_MergeModules">
+
+      <!-- DataSocket -->
+      <MergeRef Id="MStudioNet" />
+
+      <!-- Dependencies -->
+      <MergeRef Id="COMCAT" />
+      <MergeRef Id="COMCTL32" />
+      <MergeRef Id="COMDLG32" />
+      <MergeRef Id="CWUI_OCX" />
+      <MergeRef Id="DataSocketCore" />
+      <MergeRef Id="DataSocketServer" />
+      <MergeRef Id="HTML WinHelp" />
+      <MergeRef Id="logos" />
+      <MergeRef Id="logosxt" />
+      <MergeRef Id="MFC42" />
+      <MergeRef Id="Microsoft_VC100_CRT_x86" />
+      <MergeRef Id="Microsoft_VC90_CRT_x86" />
+      <MergeRef Id="Microsoft_VC90_MFC_x86" />
+      <MergeRef Id="MSCOMCTL" />
+      <MergeRef Id="MSVBVM60" />
+      <MergeRef Id="MSVCP60" />
+      <MergeRef Id="MSVCRT" />
+      <MergeRef Id="ni_utility" />
+      <MergeRef Id="NIMesaDLL" />
+      <MergeRef Id="niMetaUtils" />
+      <MergeRef Id="NIMSVC_CRT71" />
+      <MergeRef Id="NIMSVC_MFC71" />
+      <MergeRef Id="NIMSVC_STL71" />
+      <MergeRef Id="ninetbrw" />
+      <MergeRef Id="OLEAUT32" />
+      <MergeRef Id="opcenum" />
+      <MergeRef Id="policy_9_0_Microsoft_VC90_CRT_x86" />
+      <MergeRef Id="policy_9_0_Microsoft_VC90_MFC_x86" />
+
+    </FeatureGroup>
+    <?endif?>
+  </Fragment>
+</Wix>

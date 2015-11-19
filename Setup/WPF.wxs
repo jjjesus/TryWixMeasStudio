@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Contains references to Measurement Studio WPF      -->
+<!-- merge modules and its dependencies' merge modules. -->
+
+<!-- Includes -->
+<?include .\Include\Properties.wxi ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+
+      <!-- The ConfigurationData lines are used to install WFP to the local directory.         -->
+      <!-- Remove the ConfigurationData lines that begin with "Config_" to install to the GAC. -->
+
+      <!-- WPF x86 -->
+      <?if $(var.Platform) = "x86"?>
+      <Merge Id="MStudioControls" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioControls.2012.msm">
+        <ConfigurationData Name="ReconfiguredDir.26A3398B_5998_424B_BE91_8F7F42DAA596" Value="$(var.RetargetableDir)"/>
+        <ConfigurationData Name="Config_Controls.26A3398B_5998_424B_BE91_8F7F42DAA596" Value="NI.Controls.dll.26A3398B_5998_424B_BE91_8F7F42DAA596"/>
+      </Merge>
+      <Merge Id="MStudioControlsBooleans" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioControlsBooleans.2012.msm">
+        <ConfigurationData Name="ReconfiguredDir.4EDA755B_F65A_4115_9606_5C4CC34E5301" Value="$(var.RetargetableDir)"/>
+        <ConfigurationData Name="Config_ControlsBool.4EDA755B_F65A_4115_9606_5C4CC34E5301" Value="NI.ControlsBool.dll.4EDA755B_F65A_4115_9606_5C4CC34E5301"/>
+      </Merge>
+      <Merge Id="MStudioControlsGraphs" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioControlsGraphs.2012.msm">
+        <ConfigurationData Name="ReconfiguredDir.D48DE8AA_801C_480E_84F9_E52264DCDCF5" Value="$(var.RetargetableDir)"/>
+        <ConfigurationData Name="Config_ControlsGrph.D48DE8AA_801C_480E_84F9_E52264DCDCF5" Value="NI.ControlsGrph.dll.D48DE8AA_801C_480E_84F9_E52264DCDCF5"/>
+      </Merge>
+      <Merge Id="MStudioControlsNumerics" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioControlsNumerics.2012.msm">
+        <ConfigurationData Name="ReconfiguredDir.4724FD61_195C_4305_A602_18F3834D4205" Value="$(var.RetargetableDir)"/>
+        <ConfigurationData Name="Config_ControlsNum.4724FD61_195C_4305_A602_18F3834D4205" Value="NI.ControlsNum.dll.4724FD61_195C_4305_A602_18F3834D4205"/>
+      </Merge>
+      <?endif?>
+
+      <!-- WPF x64 -->
+      <?if $(var.Platform) = "x64"?>
+      <Merge Id="MStudioControls" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioControls.2012_x64.msm">
+        <ConfigurationData Name="ReconfiguredDir.3692276D_0377_4699_AFCE_F37ED0786194" Value="$(var.RetargetableDir)"/>
+        <ConfigurationData Name="Config_Controls.3692276D_0377_4699_AFCE_F37ED0786194" Value="NI.Controls.dll.3692276D_0377_4699_AFCE_F37ED0786194"/>
+      </Merge>
+      <Merge Id="MStudioControlsBooleans" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioControlsBooleans.2012_x64.msm">
+        <ConfigurationData Name="ReconfiguredDir.1B516266_A124_4C3A_9B40_6540B953FA76" Value="$(var.RetargetableDir)"/>
+        <ConfigurationData Name="Config_ControlsBool.1B516266_A124_4C3A_9B40_6540B953FA76" Value="NI.ControlsBool.dll.1B516266_A124_4C3A_9B40_6540B953FA76"/>
+      </Merge>
+      <Merge Id="MStudioControlsGraphs" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioControlsGraphs.2012_x64.msm">
+        <ConfigurationData Name="ReconfiguredDir.AA8D65D8_83B2_4169_BBFA_3E9DD9913499" Value="$(var.RetargetableDir)"/>
+        <ConfigurationData Name="Config_ControlsGrph.AA8D65D8_83B2_4169_BBFA_3E9DD9913499" Value="NI.ControlsGrph.dll.AA8D65D8_83B2_4169_BBFA_3E9DD9913499"/>
+      </Merge>
+      <Merge Id="MStudioControlsNumerics" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioControlsNumerics.2012_x64.msm">
+        <ConfigurationData Name="ReconfiguredDir.2547A661_2077_4045_A121_7FE95488095F" Value="$(var.RetargetableDir)"/>
+        <ConfigurationData Name="Config_ControlsNum.2547A661_2077_4045_A121_7FE95488095F" Value="NI.ControlsNum.dll.2547A661_2077_4045_A121_7FE95488095F"/>
+      </Merge>
+      <?endif?>
+
+    </DirectoryRef>
+
+
+    <FeatureGroup Id="WPF_MergeModules">
+
+      <!-- WPF -->
+      <MergeRef Id="MStudioControls" />
+      <MergeRef Id="MStudioControlsBooleans" />
+      <MergeRef Id="MStudioControlsGraphs" />
+      <MergeRef Id="MStudioControlsNumerics" />
+
+      <!-- Dependencies -->
+      <?if $(var.Platform) = "x86"?>
+        <MergeRef Id="Microsoft_VC100_CRT_x86" />
+      <?elseif $(var.Platform) = "x64"?>
+        <MergeRef Id="Microsoft_VC100_CRT_x64" />
+      <?endif?>
+
+    </FeatureGroup>
+  </Fragment>
+</Wix>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Contains references to Measurement Studio Network Variable  -->
+<!-- merge modules and its dependencies' merge modules.          -->
+
+<!-- Includes -->
+<?include .\Include\Properties.wxi ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+
+      <!-- The ConfigurationData lines are used to install Network Variable to the local directory. -->
+      <!-- Remove the ConfigurationData lines that begin with "Config_" to install to the GAC.      -->
+      
+      <!-- NetworkVariable x86 -->
+      <?if $(var.Platform) = "x86" ?>
+      <Merge Id="MStudioNetworkVariable" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioNetworkVariable.2012.msm">
+        <ConfigurationData Name="ReconfiguredDir.69F3EA5B_EB81_41E9_A045_DDF27CA2BB89" Value="$(var.RetargetableDir)"/>
+        <ConfigurationData Name="Config_NetworkVar.69F3EA5B_EB81_41E9_A045_DDF27CA2BB89" Value="NI.NetworkVariable.dll.69F3EA5B_EB81_41E9_A045_DDF27CA2BB89"/>
+      </Merge>
+      <?endif?>
+
+      <!-- NetworkVariable x86 -->
+      <?if $(var.Platform) = "x64" ?>
+      <Merge Id="MStudioNetworkVariable" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioNetworkVariable.2012_x64.msm">
+        <ConfigurationData Name="ReconfiguredDir.B2EA2241_AD15_4D46_8FE3_86A38AC86D4F" Value="$(var.RetargetableDir)"/>
+        <ConfigurationData Name="Config_NetworkVar.B2EA2241_AD15_4D46_8FE3_86A38AC86D4F" Value="NI.NetworkVariable.dll.B2EA2241_AD15_4D46_8FE3_86A38AC86D4F"/>
+      </Merge>
+      <?endif?>
+      
+    </DirectoryRef>
+
+    
+    <FeatureGroup Id="NetworkVariable_MergeModules">
+   
+      <!--NetworkVariable-->
+      <MergeRef Id="MStudioNetworkVariable" />
+      
+      <!-- Dependencies -->
+      <?if $(var.Platform) = "x86" ?>
+        <MergeRef Id="logos" />
+        <MergeRef Id="logosxt" />
+        <MergeRef Id="Microsoft_VC100_CRT_x86" />
+        <MergeRef Id="Microsoft_VC90_CRT_x86" />
+        <MergeRef Id="Microsoft_VC90_MFC_x86" />
+        <MergeRef Id="niMetaUtils" />
+        <MergeRef Id="NIMSVC_CRT71" />
+        <MergeRef Id="NIMSVC_STL71" />
+        <MergeRef Id="ninetv" />
+      <?elseif $(var.Platform) = "x64" ?>
+        <MergeRef Id="logos" />
+        <MergeRef Id="logos64" />
+        <MergeRef Id="logosxt" />
+        <MergeRef Id="logosxt64" />
+        <MergeRef Id="Microsoft_VC100_CRT_x64" />
+        <MergeRef Id="Microsoft_VC90_CRT_x86" />
+        <MergeRef Id="Microsoft_VC90_CRT_x86_x64" />
+        <MergeRef Id="Microsoft_VC90_MFC_x86" />
+        <MergeRef Id="Microsoft_VC90_MFC_x86_x64" />
+        <MergeRef Id="niMetaUtils" />
+        <MergeRef Id="NIMSVC_CRT71" />
+        <MergeRef Id="NIMSVC_STL71" />
+        <MergeRef Id="ninetv_x64" />
+      <?endif?>
+      
+    </FeatureGroup>
+  </Fragment>
+</Wix>

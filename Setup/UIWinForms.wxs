@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Contains references to Measurement Studio UI Win Forms -->
+<!-- merge modules and its dependencies' merge modules.     -->
+
+<!-- Includes -->
+<?include .\Include\Properties.wxi ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+
+      <!-- The ConfigurationData lines are used to install WinForms to the local directory.    -->
+      <!-- Remove the ConfigurationData lines that begin with "Config_" to install to the GAC. -->
+
+      <!-- UIWebForms x86 -->
+      <?if $(var.Platform) = "x86"?>
+      <Merge Id="MStudioUIWinForms" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioUIWinForms.2012.msm">
+        <ConfigurationData Name="ReconfiguredDir.038FA952_5E38_4730_83BD_B41DA087AA54" Value="$(var.RetargetableDir)"/>
+        <ConfigurationData Name="Config_WinForms.038FA952_5E38_4730_83BD_B41DA087AA54" Value="NI.WinForms.dll.038FA952_5E38_4730_83BD_B41DA087AA54"/>
+      </Merge>
+      <?endif?>
+
+      <!-- UIWebForms x64 -->
+      <?if $(var.Platform) = "x64"?>
+      <Merge Id="MStudioUIWinForms" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioUIWinForms.2012_x64.msm">
+        <ConfigurationData Name="ReconfiguredDir.11F3DF84_C64D_41B5_9C4E_72EB6955BAAA" Value="$(var.RetargetableDir)"/>
+        <ConfigurationData Name="Config_WinForms.11F3DF84_C64D_41B5_9C4E_72EB6955BAAA" Value="NI.WinForms.dll.11F3DF84_C64D_41B5_9C4E_72EB6955BAAA"/>
+      </Merge>
+      <?endif?>
+
+    </DirectoryRef>
+
+    
+    <FeatureGroup Id="UIWinForms_MergeModules">
+      
+      <!--MStudioUI-->
+      <MergeRef Id="MStudioUIWinForms" />
+      
+      <!-- Dependencies -->
+      <?if $(var.Platform) = "x86"?>
+        <MergeRef Id="Microsoft_VC100_ATL_x86" />
+        <MergeRef Id="Microsoft_VC100_CRT_x86" />
+        <MergeRef Id="Microsoft_VC90_CRT_x86" />
+        <MergeRef Id="Microsoft_VC90_MFC_x86" />
+        <MergeRef Id="NIMesaDLL" />
+        <MergeRef Id="niMetaUtils" />
+        <MergeRef Id="policy_9_0_Microsoft_VC90_CRT_x86" />
+        <MergeRef Id="policy_9_0_Microsoft_VC90_MFC_x86" />
+      <?elseif $(var.Platform) = "x64"?>
+        <MergeRef Id="Microsoft_VC100_ATL_x64" />
+        <MergeRef Id="Microsoft_VC100_CRT_x64" />
+        <MergeRef Id="Microsoft_VC90_CRT_x86_x64" />
+        <MergeRef Id="Microsoft_VC90_MFC_x86_x64" />
+        <MergeRef Id="NIMesa_x64" />
+        <MergeRef Id="niMetaUtils" />
+        <MergeRef Id="policy_9_0_Microsoft_VC90_CRT_x86_x64" />
+        <MergeRef Id="policy_9_0_Microsoft_VC90_MFC_x86_x64" />
+      <?endif?>
+    
+    </FeatureGroup>
+  </Fragment>
+</Wix>

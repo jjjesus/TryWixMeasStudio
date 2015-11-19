@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Contains references to Measurement Studio Analysis Standard -->
+<!-- merge modules and its dependencies' merge modules.          -->
+
+<!-- Includes -->
+<?include .\Include\Properties.wxi ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+
+      <!-- The ConfigurationData lines are used to install Analysis Standard to the local directory. -->
+      <!-- Remove the ConfigurationData lines that begin with "Config_" to install to the GAC.       -->
+      
+      <!-- Analysis Standard x86 -->
+      <?if $(var.Platform) = "x86"?>
+      <Merge Id="MStudioStandardAnalysis" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioStandardAnalysis.2012.msm">
+        <ConfigurationData Name="ReconfiguredDir.6EDBCFA5_A26C_4342_8B36_32B48B077DB2" Value="$(var.RetargetableDir)"/>
+        <ConfigurationData Name="Config_AnalysisStd.6EDBCFA5_A26C_4342_8B36_32B48B077DB2" Value="NI.Analysis.Standard.dll.6EDBCFA5_A26C_4342_8B36_32B48B077DB2"/>
+      </Merge>
+      <?endif?>
+      
+      <!-- Analysis Standard x64 -->
+      <?if $(var.Platform) = "x64"?>
+      <Merge Id="MStudioStandardAnalysis" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioStandardAnalysis.2012_x64.msm">
+        <ConfigurationData Name="ReconfiguredDir.DA3156C8_6606_4241_876B_127C60C713A9" Value="$(var.RetargetableDir)"/>
+        <ConfigurationData Name="Config_AnalysisStd.DA3156C8_6606_4241_876B_127C60C713A9" Value="NI.Analysis.Standard.dll.DA3156C8_6606_4241_876B_127C60C713A9"/>
+      </Merge>
+      <?endif?>
+      
+    </DirectoryRef>
+
+    <!-- FeatureGroup that represents support for Analysis Standard -->
+    <FeatureGroup Id="AnalysisStandard_MergeModules">
+      <!-- Analysis Standard -->
+      <MergeRef Id="MStudioStandardAnalysis" />
+
+      <!-- Dependencies -->
+      <?if $(var.Platform) = "x86"?>
+        <MergeRef Id="Microsoft_VC100_CRT_x86" />
+        <MergeRef Id="mkl" />
+        <MergeRef Id="nianlys" />
+        <MergeRef Id="niMetaUtils" />
+      <?elseif $(var.Platform) = "x64"?>
+        <MergeRef Id="Microsoft_VC100_CRT_x64" />
+        <MergeRef Id="mkl64" />
+        <MergeRef Id="nianlys_x64" />
+        <MergeRef Id="niMetaUtils" />
+      <?endif?>
+    </FeatureGroup>
+  </Fragment>
+</Wix>

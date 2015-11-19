@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Description                                         -->
+<!--  Contains localized properties used by the product. -->
+
+<WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+  <String Id="Product_Name">Example Application</String> <!-- TODO: Replace with the name of your product. -->
+  <String Id="Product_Description">Example application description.</String> <!-- TODO: Replace with the description of your product -->
+</WixLocalization>

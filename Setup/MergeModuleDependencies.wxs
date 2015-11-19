@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Contains references to all dependency merge modules -->
+<!-- These dependencies are pulled into the correct      -->
+<!-- Measurement Studio merge module features for you.   -->
+
+<!-- Includes -->
+<?include Include\Properties.wxi?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="COMCAT" Language="0" SourceFile="$(var.MergeModulesDir)\COMCAT.MSM" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="COMCTL32" Language="0" SourceFile="$(var.MergeModulesDir)\COMCTL32.MSM" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="COMDLG32" Language="0" SourceFile="$(var.MergeModulesDir)\COMDLG32.MSM" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="cvitdms" Language="0" SourceFile="$(var.MergeModulesDir)\cvitdms.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="cvitdms_x64" Language="0" SourceFile="$(var.MergeModulesDir)\cvitdms_x64.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="CWUI_OCX" Language="0" SourceFile="$(var.MergeModulesDir)\CWUI_OCX.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="DataSocketCore" Language="0" SourceFile="$(var.MergeModulesDir)\DataSocketCore.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="DataSocketServer" Language="0" SourceFile="$(var.MergeModulesDir)\DataSocketServer.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="HTML WinHelp" Language="0" SourceFile="$(var.MergeModulesDir)\HTML WinHelp.Msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="logos" Language="0" SourceFile="$(var.MergeModulesDir)\logos.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="logos64" Language="0" SourceFile="$(var.MergeModulesDir)\logos64.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="logosxt" Language="0" SourceFile="$(var.MergeModulesDir)\logosxt.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="logosxt64" Language="0" SourceFile="$(var.MergeModulesDir)\logosxt64.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="MFC42" Language="0" SourceFile="$(var.MergeModulesDir)\MFC42.MSM" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="Microsoft_VC100_ATL_x64" Language="0" SourceFile="$(var.MergeModulesDir)\Microsoft_VC100_ATL_x64.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="Microsoft_VC100_ATL_x86" Language="0" SourceFile="$(var.MergeModulesDir)\Microsoft_VC100_ATL_x86.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="Microsoft_VC100_CRT_x64" Language="0" SourceFile="$(var.MergeModulesDir)\Microsoft_VC100_CRT_x64.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="Microsoft_VC100_CRT_x86" Language="0" SourceFile="$(var.MergeModulesDir)\Microsoft_VC100_CRT_x86.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="Microsoft_VC90_CRT_x86" Language="0" SourceFile="$(var.MergeModulesDir)\Microsoft_VC90_CRT_x86.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="Microsoft_VC90_CRT_x86_x64" Language="0" SourceFile="$(var.MergeModulesDir)\Microsoft_VC90_CRT_x86_x64.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="Microsoft_VC90_MFC_x86" Language="0" SourceFile="$(var.MergeModulesDir)\Microsoft_VC90_MFC_x86.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="Microsoft_VC90_MFC_x86_x64" Language="0" SourceFile="$(var.MergeModulesDir)\Microsoft_VC90_MFC_x86_x64.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="mkl" Language="0" SourceFile="$(var.MergeModulesDir)\mkl.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="mkl64" Language="0" SourceFile="$(var.MergeModulesDir)\mkl64.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="MSCOMCTL" Language="0" SourceFile="$(var.MergeModulesDir)\MSCOMCTL.MSM" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="MStudioCommon.2012" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioCommon.2012.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="MStudioCommon.2012_x64" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioCommon.2012_x64.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="MStudioControls.2012" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioControls.2012.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="MStudioControls.2012_x64" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioControls.2012_x64.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="MStudioUI.2012" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioUI.2012.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="MStudioUI.2012_x64" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioUI.2012_x64.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="MStudioUIDesign.2012" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioUIDesign.2012.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="MStudioUIDesign.2012_x64" Language="0" SourceFile="$(var.MergeModulesDir)\MStudioUIDesign.2012_x64.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="MSVBVM60" Language="0" SourceFile="$(var.MergeModulesDir)\MSVBVM60.MSM" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="MSVCP60" Language="0" SourceFile="$(var.MergeModulesDir)\MSVCP60.MSM" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="MSVCRT" Language="0" SourceFile="$(var.MergeModulesDir)\MSVCRT.MSM" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="ni_utility" Language="0" SourceFile="$(var.MergeModulesDir)\ni_utility.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="nianlys" Language="0" SourceFile="$(var.MergeModulesDir)\nianlys.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="nianlys_x64" Language="0" SourceFile="$(var.MergeModulesDir)\nianlys_x64.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="NIMesa_x64" Language="0" SourceFile="$(var.MergeModulesDir)\NIMesa_x64.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="NIMesaDLL" Language="0" SourceFile="$(var.MergeModulesDir)\NIMesaDLL.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="niMetaUtils" Language="0" SourceFile="$(var.MergeModulesDir)\niMetaUtils.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="NIMSVC_CRT71" Language="0" SourceFile="$(var.MergeModulesDir)\NIMSVC_CRT71.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="NIMSVC_MFC71" Language="0" SourceFile="$(var.MergeModulesDir)\NIMSVC_MFC71.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="NIMSVC_STL71" Language="0" SourceFile="$(var.MergeModulesDir)\NIMSVC_STL71.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="ninetbrw" Language="0" SourceFile="$(var.MergeModulesDir)\ninetbrw.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="ninetv" Language="0" SourceFile="$(var.MergeModulesDir)\ninetv.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="ninetv_x64" Language="0" SourceFile="$(var.MergeModulesDir)\ninetv_x64.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="OLEAUT32" Language="0" SourceFile="$(var.MergeModulesDir)\OLEAUT32.MSM" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="opcenum" Language="0" SourceFile="$(var.MergeModulesDir)\opcenum.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="policy_9_0_Microsoft_VC90_CRT_x86" Language="0" SourceFile="$(var.MergeModulesDir)\policy_9_0_Microsoft_VC90_CRT_x86.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="policy_9_0_Microsoft_VC90_CRT_x86_x64" Language="0" SourceFile="$(var.MergeModulesDir)\policy_9_0_Microsoft_VC90_CRT_x86_x64.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="policy_9_0_Microsoft_VC90_MFC_x86" Language="0" SourceFile="$(var.MergeModulesDir)\policy_9_0_Microsoft_VC90_MFC_x86.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="policy_9_0_Microsoft_VC90_MFC_x86_x64" Language="0" SourceFile="$(var.MergeModulesDir)\policy_9_0_Microsoft_VC90_MFC_x86_x64.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="tdms" Language="0" SourceFile="$(var.MergeModulesDir)\tdms.msm" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" DiskId="1">
+      <Merge Id="tdms64" Language="0" SourceFile="$(var.MergeModulesDir)\tdms64.msm" />
+    </DirectoryRef>
+  </Fragment>
+</Wix>
