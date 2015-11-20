@@ -16,127 +16,127 @@
 
 <!-- Preprocessor variables used within this product -->
 <!-- TODO: Replace the values for the following properties with your own -->
-<?define Application_Name                        = "Example Application" ?>
-<?define Company_Name                            = "Example Company Name" ?>
-<?define Feature_Description                     = "Example Application Description" ?>
-<?define Feature_Title                           = "Example Application" ?>
+<?define Application_Name                        = "Try Wix" ?>
+<?define Company_Name                            = "John Jesus" ?>
+<?define Feature_Description                     = "An NI Measurement Studio Application" ?>
+<?define Feature_Title                           = "A Feature Title" ?>
 <?define Product_Version                         = "1.0.0.0"?>
 <!-- Product and Component GUIDs must be different for different installers -->
 <!-- TODO: Generate GUIDs for the properties below -->
 <?if $(var.Platform) = "x64" ?>
-  <?define ComponentId_ExampleApplication_Assembly = "{Your GUID Here}" ?>
-  <?define ComponentId_ExampleApplication_Shortcut = "{Your GUID Here}" ?>
-  <?define Product_UpgradeCode                     = "{Your GUID Here}" ?>
+	<?define ComponentId_ExampleApplication_Assembly = "{019F860F-7085-4C64-9C76-ACF553782675}" ?>
+	<?define ComponentId_ExampleApplication_Shortcut = "{EC310365-A8C9-4BB0-A7D7-CA90C77CF996}" ?>
+	<?define Product_UpgradeCode                     = "{5EB7340C-618F-4F94-BC6E-452B75693A33}" ?>
 <?elseif $(var.Platform) = "x86" ?>
-  <?define ComponentId_ExampleApplication_Assembly = "{Your GUID Here}" ?>
-  <?define ComponentId_ExampleApplication_Shortcut = "{Your GUID Here}" ?>
-  <?define Product_UpgradeCode                     = "{Your GUID Here}" ?>
+	<?define ComponentId_ExampleApplication_Assembly = "{81ADCB00-2ADC-4365-BA54-E71D7BFC95D2}" ?>
+	<?define ComponentId_ExampleApplication_Shortcut = "{FC72A7F1-06A2-44E8-B313-164C8F8AF7EF}" ?>
+	<?define Product_UpgradeCode                     = "{8E60742D-2CE3-47CD-BBE8-86CD922CA475}" ?>
 <?endif?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 	<Product Id="*" 
-           Name="!(loc.Product_Name)"
-           Language="1033" 
-           Version="$(var.Product_Version)"
-           Manufacturer="National Instruments" 
-           UpgradeCode="$(var.Product_UpgradeCode)">
+					 Name="!(loc.Product_Name)"
+					 Language="1033" 
+					 Version="$(var.Product_Version)"
+					 Manufacturer="National Instruments" 
+					 UpgradeCode="$(var.Product_UpgradeCode)">
 		<Package InstallerVersion="300"
-             Description="!(loc.Product_Description)"
-             Compressed="yes"
-             InstallScope="perMachine" />
+						 Description="!(loc.Product_Description)"
+						 Compressed="yes"
+						 InstallScope="perMachine" />
 
-    <MediaTemplate EmbedCab="yes" />
+		<MediaTemplate EmbedCab="yes" />
 
-    <!-- Directories -->
-    <!-- To install your application to a different directory change the directory structure below. -->
-    <!-- For example if you wanted to install Measurement Studio assemblies to a sub directory you  -->
-    <!-- would add a directory under INSTALLDIR and also change the RetargetableDir property in     -->
-    <!-- Include\Properties.wxi to your new directory.                                              -->
-    <!-- For example: To install Measurement Studio dependencies to a sub directory named           -->
-    <!-- "Dependencies" perform the following steps:                                                -->
-    <!--  1. Modify the directory tree below to look like the following:                            -->
-    <!--   <Directory Id="CompanyNameDir" Name="$(var.Company_Name)">                               -->
-    <!--     <Directory Id="INSTALLDIR" Name="$(var.Application_Name)">                             -->
-    <!--       <Directory Id="DependenciesDir" Name="Dependencies" />                               -->
-    <!--     </Directory>                                                                           -->
-    <!--   </Directory>                                                                             -->
-    <!--  2. Modify the RetargetableDir property in Include\Properties.wxi to the following:        -->
-    <!--   <?define RetargetableDir = "[DependenciesDir]" ?>                                        -->
-    <Directory Id="TARGETDIR" Name="SourceDir">
-      <!-- Preprocessor decision on which Program Files folder to use -->
-      <?if $(var.Platform) = "x86" ?>
-        <?define targetProgramFilesFolder = "ProgramFilesFolder" ?>
-      <?elseif $(var.Platform) = "x64" ?>
-        <?define targetProgramFilesFolder = "ProgramFiles64Folder" ?>
-      <?endif?>
-      <!-- Program Files directory tree -->
-      <Directory Id="$(var.targetProgramFilesFolder)">
-        <Directory Id="CompanyNamePFDir" Name="$(var.Company_Name)">
-          <Directory Id="INSTALLDIR" Name="$(var.Application_Name)" />
-        </Directory>
-      </Directory>
-      <!-- Start menu shortcut directory tree -->
-      <Directory Id="ProgramMenuFolder">
-        <Directory Id="CompanyNamePMDir" Name="$(var.Company_Name)" />
-      </Directory>
-    </Directory>
-    
-    <!-- Upgrade -->
+		<!-- Directories -->
+		<!-- To install your application to a different directory change the directory structure below. -->
+		<!-- For example if you wanted to install Measurement Studio assemblies to a sub directory you  -->
+		<!-- would add a directory under INSTALLDIR and also change the RetargetableDir property in     -->
+		<!-- Include\Properties.wxi to your new directory.                                              -->
+		<!-- For example: To install Measurement Studio dependencies to a sub directory named           -->
+		<!-- "Dependencies" perform the following steps:                                                -->
+		<!--  1. Modify the directory tree below to look like the following:                            -->
+		<!--   <Directory Id="CompanyNameDir" Name="$(var.Company_Name)">                               -->
+		<!--     <Directory Id="INSTALLDIR" Name="$(var.Application_Name)">                             -->
+		<!--       <Directory Id="DependenciesDir" Name="Dependencies" />                               -->
+		<!--     </Directory>                                                                           -->
+		<!--   </Directory>                                                                             -->
+		<!--  2. Modify the RetargetableDir property in Include\Properties.wxi to the following:        -->
+		<!--   <?define RetargetableDir = "[DependenciesDir]" ?>                                        -->
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<!-- Preprocessor decision on which Program Files folder to use -->
+			<?if $(var.Platform) = "x86" ?>
+				<?define targetProgramFilesFolder = "ProgramFilesFolder" ?>
+			<?elseif $(var.Platform) = "x64" ?>
+				<?define targetProgramFilesFolder = "ProgramFiles64Folder" ?>
+			<?endif?>
+			<!-- Program Files directory tree -->
+			<Directory Id="$(var.targetProgramFilesFolder)">
+				<Directory Id="CompanyNamePFDir" Name="$(var.Company_Name)">
+					<Directory Id="INSTALLDIR" Name="$(var.Application_Name)" />
+				</Directory>
+			</Directory>
+			<!-- Start menu shortcut directory tree -->
+			<Directory Id="ProgramMenuFolder">
+				<Directory Id="CompanyNamePMDir" Name="$(var.Company_Name)" />
+			</Directory>
+		</Directory>
+		
+		<!-- Upgrade -->
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-    
-    <!-- Components                                                                        -->
-    <!-- This component should contain any additional file(s) required by your application -->
-    <!-- that are not included in the Measurement Studio Merge Modules                     -->
-    <DirectoryRef Id="INSTALLDIR">      
-      <Component Id="ExampleApplication_Assembly" Guid="$(var.ComponentId_ExampleApplication_Assembly)" >
-        <!-- This line directs WiX to use the output from the ExampleAppliation project. -->
-        <!-- To change what files you want to install please review WiX documentation    -->
-        <!-- regarding the File element.                                                 -->
-        <File Id="ExampleApplicationExe" Name="$(var.ExampleApplication.TargetFileName)" Source="$(var.ExampleApplication.TargetPath)" />
-      </Component>
-    </DirectoryRef>
-    <!-- This component installs a shortcut to the start menu -->
-    <DirectoryRef Id="CompanyNamePMDir">
-      <Component Id="ExampleApplication_Shortcut" Guid="$(var.ComponentId_ExampleApplication_Shortcut)">
-        <CreateFolder />
-        <Shortcut Id="ExampleApplicationStartMenuShortcut" Name="Example Application" Target="[#ExampleApplicationExe]" />
-      </Component>
-    </DirectoryRef>
+		
+		<!-- Components                                                                        -->
+		<!-- This component should contain any additional file(s) required by your application -->
+		<!-- that are not included in the Measurement Studio Merge Modules                     -->
+		<DirectoryRef Id="INSTALLDIR">      
+			<Component Id="ExampleApplication_Assembly" Guid="$(var.ComponentId_ExampleApplication_Assembly)" >
+				<!-- This line directs WiX to use the output from the ExampleAppliation project. -->
+				<!-- To change what files you want to install please review WiX documentation    -->
+				<!-- regarding the File element.                                                 -->
+				<File Id="ExampleApplicationExe" Name="$(var.ExampleApplication.TargetFileName)" Source="$(var.ExampleApplication.TargetPath)" />
+			</Component>
+		</DirectoryRef>
+		<!-- This component installs a shortcut to the start menu -->
+		<DirectoryRef Id="CompanyNamePMDir">
+			<Component Id="ExampleApplication_Shortcut" Guid="$(var.ComponentId_ExampleApplication_Shortcut)">
+				<CreateFolder />
+				<Shortcut Id="ExampleApplicationStartMenuShortcut" Name="Example Application" Target="[#ExampleApplicationExe]" />
+			</Component>
+		</DirectoryRef>
 
-    <!-- Features -->
+		<!-- Features -->
 		<Feature Id="ProductFeature" Title="$(var.Feature_Title)" Description="$(var.Feature_Description)" Level="10">
-      <ComponentRef Id="ExampleApplication_Assembly" />
-      <ComponentRef Id="ExampleApplication_Shortcut" />
+			<ComponentRef Id="ExampleApplication_Assembly" />
+			<ComponentRef Id="ExampleApplication_Shortcut" />
 
-      <!-- niMetaUtils is required for all Measurement Studio deployment -->
-      <MergeRef Id="niMetaUtils"/>
-      
-      <!-- TODO: Uncomment feature groups that represent the dependencies -->
-      <!--  of the application you are installing -->
-      <FeatureGroupRef Id="AnalysisEnterprise_MergeModules"/>
-      <!--<FeatureGroupRef Id="AnalysisProfessional_MergeModules"/>-->
-      <!--<FeatureGroupRef Id="AnalysisStandard_MergeModules"/>-->
-      <FeatureGroupRef Id="MStudioCommon_MergeModules"/>
-      <!--<FeatureGroupRef Id="DataSocket_MergeModules"/>-->
-      <!--<FeatureGroupRef Id="NetworkVariable_MergeModules"/>-->
-      <!--<FeatureGroupRef Id="TDMS_MergeModules"/>-->
-      <FeatureGroupRef Id="UIShared_MergeModules"/>
-      <!--<FeatureGroupRef Id="UIWebForms_MergeModules"/>-->
-      <FeatureGroupRef Id="UIWinForms_MergeModules"/>
-      <!--<FeatureGroupRef Id="WPF_MergeModules"/>-->
+			<!-- niMetaUtils is required for all Measurement Studio deployment -->
+			<MergeRef Id="niMetaUtils"/>
+			
+			<!-- TODO: Uncomment feature groups that represent the dependencies -->
+			<!--  of the application you are installing -->
+			<FeatureGroupRef Id="AnalysisEnterprise_MergeModules"/>
+			<!--<FeatureGroupRef Id="AnalysisProfessional_MergeModules"/>-->
+			<!--<FeatureGroupRef Id="AnalysisStandard_MergeModules"/>-->
+			<FeatureGroupRef Id="MStudioCommon_MergeModules"/>
+			<!--<FeatureGroupRef Id="DataSocket_MergeModules"/>-->
+			<!--<FeatureGroupRef Id="NetworkVariable_MergeModules"/>-->
+			<!--<FeatureGroupRef Id="TDMS_MergeModules"/>-->
+			<FeatureGroupRef Id="UIShared_MergeModules"/>
+			<!--<FeatureGroupRef Id="UIWebForms_MergeModules"/>-->
+			<FeatureGroupRef Id="UIWinForms_MergeModules"/>
+			<!--<FeatureGroupRef Id="WPF_MergeModules"/>-->
 		</Feature>
-    
-    <!-- Properties -->
-    <!--  INSTALLLEVEL is set to activate the product's feature -->
-    <!--  WIXUI_INSTALLDIR is what WiX uses to allow the user   -->
-    <!--   to change the installation directory.                -->
-    <Property Id="INSTALLLEVEL" Value="1000" />
-    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+		
+		<!-- Properties -->
+		<!--  INSTALLLEVEL is set to activate the product's feature -->
+		<!--  WIXUI_INSTALLDIR is what WiX uses to allow the user   -->
+		<!--   to change the installation directory.                -->
+		<Property Id="INSTALLLEVEL" Value="1000" />
+		<Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
 
-    <!-- WiX Installer UI and License -->
-    <UIRef Id="WixUI_InstallDir"/>
+		<!-- WiX Installer UI and License -->
+		<UIRef Id="WixUI_InstallDir"/>
 
-    <!-- Required by NIMetaUtils merge module -->
-    <EnsureTable Id="Registry" />
-    </Product>
+		<!-- Required by NIMetaUtils merge module -->
+		<EnsureTable Id="Registry" />
+		</Product>
 </Wix>

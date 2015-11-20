@@ -4,6 +4,6 @@
 <!--  Contains localized properties used by the product. -->
 
 <WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
-  <String Id="Product_Name">Example Application</String> <!-- TODO: Replace with the name of your product. -->
-  <String Id="Product_Description">Example application description.</String> <!-- TODO: Replace with the description of your product -->
+  <String Id="Product_Name">Try Wix</String> <!-- TODO: Replace with the name of your product. -->
+  <String Id="Product_Description">An NI Measurement Studio Application.</String> <!-- TODO: Replace with the description of your product -->
 </WixLocalization>

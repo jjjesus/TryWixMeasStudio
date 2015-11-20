@@ -63,16 +63,6 @@
     <Content Include="Include\Properties.wxi" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExampleApplication\ExampleApplication.csproj">
-      <Name>ExampleApplication</Name>
-      <Project>{555a13ba-149a-41bc-9626-37add15536bf}</Project>
-      <Private>True</Private>
-      <DoNotHarvest>True</DoNotHarvest>
-      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
-      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Lang\en-us.wxl" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +70,16 @@
       <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
       <Name>WixUIExtension</Name>
     </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExampleApplication\ExampleApplication.csproj">
+      <Name>ExampleApplication</Name>
+      <Project>{9fdc67b7-a355-4d9d-83cd-187e9fe0d6e5}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--

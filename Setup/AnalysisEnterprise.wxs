@@ -40,7 +40,7 @@
       
       <!-- Dependencies -->
       <?if $(var.Platform) = "x86"?>
-        <MergeRef Id="Microsoft_VC100_CRT_x86" />
+        <!--<MergeRef Id="Microsoft_VC100_CRT_x86" />-->
         <MergeRef Id="mkl" />
         <MergeRef Id="nianlys" />
         <MergeRef Id="niMetaUtils" />
