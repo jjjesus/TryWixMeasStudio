@@ -4,6 +4,7 @@
         xmlns:ni="http://schemas.ni.com/controls/2009/xaml/presentation"
         Title="MainWindow" Height="480" Width="640" >
     <Grid>
-        <TextBlock>A National Instruments Measurements Studio Application.</TextBlock>
+        <TextBlock Text="A National Instruments Measurements Studio Application."/>
+        <ni:GaugeDouble Height="200" Width="200"/>
     </Grid>
 </Window>
